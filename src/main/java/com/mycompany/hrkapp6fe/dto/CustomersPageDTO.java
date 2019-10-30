@@ -3,19 +3,19 @@ package com.mycompany.hrkapp6fe.dto;
 import java.util.List;
 
 public class CustomersPageDTO {
-	
+
 	private List<CustomersDTO> content;
 	private PageableDTO pageable;
-	 private float totalPages;
-	 private float totalElements;
-	 private boolean last;
-	 private boolean first;
+	private float totalPages;
+	private float totalElements;
+	private boolean last;
+	private boolean first;
 	private SortDTO sort;
-	 private float numberOfElements;
-	 private float size;
-	 private float number;
-	 private boolean empty;
-	
+	private float numberOfElements;
+	private float size;
+	private float number;
+	private boolean empty;
+
 	public CustomersPageDTO() {
 		super();
 	}
@@ -125,5 +125,4 @@ public class CustomersPageDTO {
 		this.empty = empty;
 	}
 
-	
 }
