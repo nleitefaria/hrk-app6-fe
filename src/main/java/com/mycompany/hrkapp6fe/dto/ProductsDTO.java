@@ -4,30 +4,33 @@ import java.math.BigDecimal;
 
 public class ProductsDTO 
 {
-	private Integer id;
-	private String supplierIds;  
-    private String productCode;   
-    private String productName;   
-    private String description;   
-    private BigDecimal standardCost;   
-    private BigDecimal listPrice;    
-    private Integer reorderLevel;   
+ 
+    private String supplierIds;
+    private Integer id;
+    private String productCode;
+    private String productName;
+    private String description;
+    private BigDecimal standardCost;
+    private BigDecimal listPrice;
+    private Integer reorderLevel;
     private Integer targetLevel;
-    private String quantityPerUnit;    
-    private boolean discontinued;   
-    private Integer minimumReorderQuantity;    
+    private String quantityPerUnit;
+    private boolean discontinued;
+    private Integer minimumReorderQuantity;
     private String category;
-    
+    private byte[] attachments;
+
 	public ProductsDTO() {
 		super();
 	}
 
-	public ProductsDTO(Integer id, String supplierIds, String productCode, String productName, String description,
+	public ProductsDTO(String supplierIds, Integer id, String productCode, String productName, String description,
 			BigDecimal standardCost, BigDecimal listPrice, Integer reorderLevel, Integer targetLevel,
-			String quantityPerUnit, boolean discontinued, Integer minimumReorderQuantity, String category) {
+			String quantityPerUnit, boolean discontinued, Integer minimumReorderQuantity, String category,
+			byte[] attachments) {
 		super();
-		this.id = id;
 		this.supplierIds = supplierIds;
+		this.id = id;
 		this.productCode = productCode;
 		this.productName = productName;
 		this.description = description;
@@ -39,14 +42,7 @@ public class ProductsDTO
 		this.discontinued = discontinued;
 		this.minimumReorderQuantity = minimumReorderQuantity;
 		this.category = category;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
+		this.attachments = attachments;
 	}
 
 	public String getSupplierIds() {
@@ -55,6 +51,14 @@ public class ProductsDTO
 
 	public void setSupplierIds(String supplierIds) {
 		this.supplierIds = supplierIds;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getProductCode() {
@@ -144,4 +148,14 @@ public class ProductsDTO
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
+	public byte[] getAttachments() {
+		return attachments;
+	}
+
+	public void setAttachments(byte[] attachments) {
+		this.attachments = attachments;
+	}
+
+	
 }
