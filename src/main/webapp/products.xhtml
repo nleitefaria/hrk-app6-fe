@@ -9,6 +9,7 @@
     <h:body>   	
     	<ui:composition template="/template/common/commonLayout.xhtml">  	
     		<ui:define name="content">
+    			
     			<h:form>
 				<p:dataTable var="product" value="#{productBean.model}"
 					paginator="true" rows="10"
@@ -26,7 +27,8 @@
 					
 
 				</p:dataTable>
-			</h:form>
+				</h:form>			
+						
     		</ui:define>   		
     	</ui:composition>   	
     </h:body>
