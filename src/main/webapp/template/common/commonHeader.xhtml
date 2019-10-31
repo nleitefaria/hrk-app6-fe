@@ -8,11 +8,12 @@
       >
     <body>
 	    <ui:composition>
-	    <h:form>
-	    	  	 
-			<p:commandButton value="Products" id="products" action="#{navigation.listProducts}" style="margin-right:20px;" styleClass="ui-priority-primary" />
-			
-			<p:commandButton value="Customers" id="customers" action="#{navigation.listCustomers}" style="margin-right:20px;" styleClass="ui-priority-primary" />				
+	    <h:form>	    	  	 
+			<p:commandButton value="Products" id="products" action="#{navigation.listProducts}" style="margin-right:20px;" styleClass="ui-priority-primary" />			
+			<p:commandButton value="Customers" id="customers" action="#{navigation.listCustomers}" style="margin-right:20px;" styleClass="ui-priority-primary" />
+			<p:commandButton value="Employees" id="employees" action="#{navigation.listEmployees}" style="margin-right:20px;" styleClass="ui-priority-primary" />		
+			<p:commandButton value="Orders" id="orders" action="#{navigation.listOrders}" style="margin-right:20px;" styleClass="ui-priority-primary" />
+			<p:commandButton value="Invoices" id="invoices" action="#{navigation.listInvoices}" style="margin-right:20px;" styleClass="ui-priority-primary" />				
 			
 		</h:form>
 	    </ui:composition>
