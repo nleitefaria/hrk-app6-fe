@@ -26,4 +26,8 @@ public class NavigationController {
 	public String listInvoices(){
 	    return "invoices?faces-redirect=true"; 
 	}
+	
+	public String listOrders(){
+	    return "orders?faces-redirect=true"; 
+	}
 }
