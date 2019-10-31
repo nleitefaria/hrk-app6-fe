@@ -22,4 +22,8 @@ public class NavigationController {
 	public String listEmployees(){
 	    return "employees?faces-redirect=true"; 
 	}
+	
+	public String listInvoices(){
+	    return "invoices?faces-redirect=true"; 
+	}
 }
