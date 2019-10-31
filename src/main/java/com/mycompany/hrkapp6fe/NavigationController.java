@@ -7,9 +7,11 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class NavigationController {
 	
+	
 	public String listProducts(){
 	    return "products?faces-redirect=true";
 	}
+	
 	
 	public String listCustomers(){
 	    return "customers?faces-redirect=true"; 
