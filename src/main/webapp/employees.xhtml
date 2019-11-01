@@ -8,7 +8,23 @@
 <h:body>
 	<ui:composition template="/template/common/commonLayout.xhtml">
 		<ui:define name="content">
-			<h:outputText value="employees" />
+			<h:form>
+				<p:dataTable var="employee" value="#{employeeBean.model}"
+					paginator="true" rows="10"
+					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+					rowsPerPageTemplate="5,10,15" lazy="true">
+					<p:column headerText="Id">
+						<h:outputText value="#{employee.id}" />
+					</p:column>
+					<p:column headerText="First name">
+						<h:outputText value="#{employee.firstName}" />
+					</p:column>
+					<p:column headerText="Last name">
+						<h:outputText value="#{employee.lastName}" />
+					</p:column>
+					
+				</p:dataTable>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 </h:body>

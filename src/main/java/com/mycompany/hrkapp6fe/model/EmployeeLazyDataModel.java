@@ -5,7 +5,6 @@ import java.util.Map;
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
 import com.mycompany.hrkapp6fe.dto.EmployeesDTO;
-import com.mycompany.hrkapp6fe.service.CustomerService;
 import com.mycompany.hrkapp6fe.service.EmployeeService;
 
 public class EmployeeLazyDataModel extends LazyDataModel<EmployeesDTO>  {
@@ -16,7 +15,7 @@ public class EmployeeLazyDataModel extends LazyDataModel<EmployeesDTO>  {
 	private static final long serialVersionUID = 6616648323739322184L;
 
 	public EmployeeLazyDataModel(){	
-		CustomerService s = new CustomerService();
+		EmployeeService s = new EmployeeService();
         this.setRowCount(s.count());
     }
     
