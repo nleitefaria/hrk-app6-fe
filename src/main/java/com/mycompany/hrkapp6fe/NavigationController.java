@@ -30,4 +30,12 @@ public class NavigationController {
 	public String listOrders(){
 	    return "orders?faces-redirect=true"; 
 	}
+	
+	public String listShippers(){
+	    return "shippers?faces-redirect=true"; 
+	}
+	
+	public String listSuppliers(){
+	    return "suppliers?faces-redirect=true"; 
+	}
 }
