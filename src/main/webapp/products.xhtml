@@ -9,7 +9,12 @@
     <h:body>   	
     	<ui:composition template="/template/common/commonLayout.xhtml">  	
     		<ui:define name="content">
-    			
+    			<h:form>
+    			<p:breadCrumb>
+    				<p:menuitem value="Home" action="#{navigation.home}" />
+    				<p:menuitem value="Products" url="#" />
+				</p:breadCrumb>
+				</h:form>
     			<h:form>
 				<p:dataTable var="product" value="#{productBean.model}"
 					paginator="true" rows="10"
