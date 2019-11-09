@@ -8,6 +8,7 @@ import javax.faces.bean.RequestScoped;
 public class NavigationController {
 	
 	public String home(){
+		System.out.println("@home");
 	    return "index?faces-redirect=true";
 	}
 	
