@@ -36,7 +36,6 @@ public class NavigationController {
 	}
 	
 	public String listSuppliers(){
-	    //return "suppliers?faces-redirect=true";
-		return "index?faces-redirect=true";
+	    return "suppliers?faces-redirect=true";
 	}
 }
