@@ -1,17 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"   
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:h="http://java.sun.com/jsf/html"  
       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
       >
     <body>
 	    <ui:composition>
-	
-			<h1>This project is a client for the Northwind RESTFul API.</h1>
+			<br></br>
+			<h1>This project is a client for the  <a href="https://hrk-app6.herokuapp.com/swagger-ui.html">Northwind RESTFul API</a>.</h1>
 			<p>Please browse the following subjects to get more info:</p>
-				
+			<br></br>
+			<p:commandLink id="products" action="#{navigation.listProducts}" style="margin-right:20px;">
+        		<h:outputText value="Products" />
+    		</p:commandLink>
+    		<br></br>
+    		<p:commandLink id="customers" action="#{navigation.listCustomers}" style="margin-right:20px;">
+        		<h:outputText value="Customers" />
+    		</p:commandLink>
+    		<br></br>
+    		<p:commandLink id="employees" action="#{navigation.listEmployees}" style="margin-right:20px;">
+        		<h:outputText value="Employees" />
+    		</p:commandLink>
+    		<br></br>
+    		<p:commandLink id="invoices" action="#{navigation.listInvoices}" style="margin-right:20px;">
+        		<h:outputText value="Invoices" />
+    		</p:commandLink>
+    		<br></br>   		
+    		<p:commandLink id="orders" action="#{navigation.listOrders}" style="margin-right:20px;">
+        		<h:outputText value="Orders" />
+    		</p:commandLink>
+    		<br></br>
+    		<p:commandLink id="shippers" action="#{navigation.listShippers}" style="margin-right:20px;">
+        		<h:outputText value="Shippers" />
+    		</p:commandLink>
+    		<br></br>
+    		<p:commandLink id="suppliers" action="#{navigation.listSuppliers}" style="margin-right:20px;">
+        		<h:outputText value="Suppliers" />
+    		</p:commandLink>			
 	    </ui:composition>
     </body>
 </html>
-
-
