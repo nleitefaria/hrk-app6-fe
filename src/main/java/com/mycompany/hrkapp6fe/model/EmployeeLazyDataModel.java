@@ -24,7 +24,4 @@ public class EmployeeLazyDataModel extends LazyDataModel<EmployeesDTO>  {
     	EmployeeService s = new EmployeeService();
         return s.getAll(first / 10, pageSize);
     }
-	
-	
-
 }
