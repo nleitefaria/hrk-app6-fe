@@ -9,28 +9,14 @@
 	<ui:composition template="/template/common/commonLayout.xhtml">
 		<ui:define name="content">
 			<h:form>
-				<p:dataTable var="invoice" value="#{invoiceBean.model}"
-					paginator="true" rows="10"
-					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-					rowsPerPageTemplate="5,10,15" lazy="true">
-					<p:column headerText="Id">
-						<h:outputText value="#{invoice.id}" />
-					</p:column>
-					<p:column headerText="Invoice date">
-						<h:outputText value="#{invoice.invoiceDate}" />
-					</p:column>				
-					<p:column headerText="Due date">
-						<h:outputText value="#{invoice.dueDate}" />
-					</p:column>					
-					<p:column headerText="Tax">
-						<h:outputText value="#{invoice.tax}" />
-					</p:column>					
-					<p:column headerText="Shipping">
-						<h:outputText value="#{invoice.shipping}" />
-					</p:column>
-				</p:dataTable>
+    			<p:breadCrumb>
+    				<p:menuitem value="Home" action="#{navigation.home}" />
+    				<p:menuitem value="Invoices" url="#" />
+				</p:breadCrumb>
 			</h:form>
+			<h:outputText value="invoices" />
 		</ui:define>
 	</ui:composition>
 </h:body>
+
 </html>
