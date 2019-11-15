@@ -14,7 +14,24 @@
     				<p:menuitem value="Invoices" url="#" />
 				</p:breadCrumb>
 			</h:form>
-			<h:outputText value="invoices" />
+			<h:form>
+				<p:dataTable var="invoice" value="#{invoiceBean.model}"
+					paginator="true" rows="10"
+					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+					rowsPerPageTemplate="5,10,15" lazy="true">
+					<p:column headerText="Id">
+						<h:outputText value="#{invoice.id}" />
+					</p:column>
+					<p:column headerText="Invoice date">
+						<h:outputText value="#{invoice.invoiceDate}" />
+					</p:column>					
+					<p:column headerText="Amount due">
+						<h:outputText value="#{invoice.amountDue}" />
+					</p:column>
+
+
+				</p:dataTable>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 </h:body>
