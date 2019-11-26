@@ -14,7 +14,22 @@
     				<p:menuitem value="Orders" url="#" />
 				</p:breadCrumb>
 			</h:form>
-			<h:outputText value="orders" />
+			<h:form>
+				<p:dataTable var="order" value="#{orderBean.model}"
+					paginator="true" rows="10"
+					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+					rowsPerPageTemplate="5,10,15" lazy="true">
+					<p:column headerText="Id">
+						<h:outputText value="#{order.id}" />
+					</p:column>
+					<p:column headerText="Order date">
+						<h:outputText value="#{order.orderDate}" />
+					</p:column>
+					
+					
+
+				</p:dataTable>
+				</h:form>
 		</ui:define>
 	</ui:composition>
 </h:body>
