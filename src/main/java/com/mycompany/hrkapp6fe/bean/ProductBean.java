@@ -11,15 +11,10 @@ import com.mycompany.hrkapp6fe.model.ProductLazyDataModel;
 @ManagedBean
 @RequestScoped
 public class ProductBean {
-	
-	
-	
+
 	ProductLazyDataModel dataModel = new ProductLazyDataModel();
 
     public LazyDataModel<ProductsDTO> getModel(){
         return dataModel;
     }
-    
-    
-
 }
