@@ -10,19 +10,21 @@ import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 
 import com.mycompany.hrkapp6fe.dto.ShippersDTO;
 import com.mycompany.hrkapp6fe.dto.ShippersPageDTO;
+import com.mycompany.hrkapp6fe.dto.SuppliersDTO;
+import com.mycompany.hrkapp6fe.dto.SuppliersPageDTO;
 
-public class ShipperService {
+public class SupplierService {
 	
-	final String path = "https://hrk-app6.herokuapp.com/api/v1/shipper"; 
+	final String path = "https://hrk-app6.herokuapp.com/api/v1/supplier"; 
 	
-	public ShipperService(){}
+	public SupplierService(){}
 	
-    public List<ShippersDTO> getAll(int start, int size)
+    public List<SuppliersDTO> getAll(int start, int size)
     {  
     	ResteasyClient client = new ResteasyClientBuilder().build();
         ResteasyWebTarget target = client.target(path + "/all/" + (start + 1));
         Response response = target.request().get();
-        ShippersPageDTO value = response.readEntity(ShippersPageDTO.class);
+        SuppliersPageDTO value = response.readEntity(SuppliersPageDTO.class);
         response.close();
         return value.getContent();
     }
