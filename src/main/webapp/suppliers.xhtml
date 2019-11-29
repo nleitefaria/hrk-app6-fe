@@ -14,7 +14,20 @@
     				<p:menuitem value="Supliers" url="#" />
 				</p:breadCrumb>
 			</h:form>
-			<h:outputText value="suppliers" />
+			<h:form>
+				<p:dataTable var="supplier" value="#{supplierBean.model}"
+					paginator="true" rows="10"
+					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+					rowsPerPageTemplate="5,10,15" lazy="true">
+					<p:column headerText="Id">
+						<h:outputText value="#{supplier.id}" />
+					</p:column>
+					
+					
+					
+
+				</p:dataTable>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 </h:body>
