@@ -7,17 +7,21 @@
       xmlns:h = "http://java.sun.com/jsf/html" 
       >
     <body>
-	    <ui:composition>
-	    	<h:graphicImage value ="/images/northwind.png" />
-    		<h:form>	    	  	 
-				<p:commandButton value="Products" id="products" action="#{navigation.listProducts}" style="margin-right:20px;" styleClass="ui-priority-primary" />			
-				<p:commandButton value="Customers" id="customers" action="#{navigation.listCustomers}" style="margin-right:20px;" styleClass="ui-priority-primary" />
-				<p:commandButton value="Employees" id="employees" action="#{navigation.listEmployees}" style="margin-right:20px;" styleClass="ui-priority-primary" />		
-				<p:commandButton value="Orders" id="orders" action="#{navigation.listOrders}" style="margin-right:20px;" styleClass="ui-priority-primary" />
-				<p:commandButton value="Invoices" id="invoices" action="#{navigation.listInvoices}" style="margin-right:20px;" styleClass="ui-priority-primary" />				
-				<p:commandButton value="Shippers" id="shippers" action="#{navigation.listShippers}" style="margin-right:20px;" styleClass="ui-priority-primary" />	
-				<p:commandButton value="Suppliers" id="suppliers" action="#{navigation.listSuppliers}" style="margin-right:20px;" styleClass="ui-priority-primary" />	
-			</h:form>
+	    <ui:composition>    
+	    	<div style="width:250px;float:left;">
+	    		<h:graphicImage value ="/images/northwind1.png" />
+	    	</div>
+	    	<div style="margin-left:250px; padding-top: 20px;">
+    			<h:form>	    	  	 
+					<p:commandButton value="Products" id="products" action="#{navigation.listProducts}" style="margin-right:20px;" styleClass="ui-priority-primary" />			
+					<p:commandButton value="Customers" id="customers" action="#{navigation.listCustomers}" style="margin-right:20px;" styleClass="ui-priority-primary" />
+					<p:commandButton value="Employees" id="employees" action="#{navigation.listEmployees}" style="margin-right:20px;" styleClass="ui-priority-primary" />		
+					<p:commandButton value="Orders" id="orders" action="#{navigation.listOrders}" style="margin-right:20px;" styleClass="ui-priority-primary" />
+					<p:commandButton value="Invoices" id="invoices" action="#{navigation.listInvoices}" style="margin-right:20px;" styleClass="ui-priority-primary" />				
+					<p:commandButton value="Shippers" id="shippers" action="#{navigation.listShippers}" style="margin-right:20px;" styleClass="ui-priority-primary" />	
+					<p:commandButton value="Suppliers" id="suppliers" action="#{navigation.listSuppliers}" style="margin-right:20px;" styleClass="ui-priority-primary" />	
+				</h:form>
+			</div>
 			<br></br>
 			<br></br>
 	    </ui:composition>
