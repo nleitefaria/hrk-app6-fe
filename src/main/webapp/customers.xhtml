@@ -4,16 +4,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	>
 <h:body>
 	<ui:composition template="/template/common/commonLayout.xhtml">
 		<ui:define name="content">
+			<br></br>
 			<h:form>
     			<p:breadCrumb>
     				<p:menuitem value="Home" action="#{navigation.home}" />
     				<p:menuitem value="Customers" url="#" />
 				</p:breadCrumb>
 			</h:form>
+			<br></br>
+			<br></br>
 			<h:form>
 				<p:dataTable var="customer" value="#{customerBean.model}"
 					paginator="true" rows="10"
@@ -30,9 +35,13 @@
 					</p:column>
 					<p:column headerText="Company">
 						<h:outputText value="#{customer.company}" />
+					</p:column>					
+					<p:column headerText="Email">
+						<h:outputText value="#{customer.emailAddress}" />
 					</p:column>
-
-
+					<p:column headerText="Title">
+						<h:outputText value="#{customer.company}" />
+					</p:column>
 				</p:dataTable>
 			</h:form>
 		</ui:define>

@@ -8,12 +8,15 @@
 <h:body>
 	<ui:composition template="/template/common/commonLayout.xhtml">
 		<ui:define name="content">
+			<br></br>
 			<h:form>
     			<p:breadCrumb>
     				<p:menuitem value="Home" action="#{navigation.home}" />
     				<p:menuitem value="Orders" url="#" />
 				</p:breadCrumb>
 			</h:form>
+			<br></br>
+			<br></br>
 			<h:form>
 				<p:dataTable var="order" value="#{orderBean.model}"
 					paginator="true" rows="10"
