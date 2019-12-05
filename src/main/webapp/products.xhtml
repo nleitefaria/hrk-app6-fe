@@ -9,26 +9,29 @@
     <h:body>   	
     	<ui:composition template="/template/common/commonLayout.xhtml">  	
     		<ui:define name="content">
+    			<br></br>
     			<h:form>
-    			<p:breadCrumb>
-    				<p:menuitem value="Home" action="#{navigation.home}" />
-    				<p:menuitem value="Products" url="#" />
-				</p:breadCrumb>
+    				<p:breadCrumb>
+    					<p:menuitem value="Home" action="#{navigation.home}" />
+    					<p:menuitem value="Products" url="#" />
+					</p:breadCrumb>
 				</h:form>
+				<br></br>
+				<br></br>
     			<h:form>
-				<p:dataTable var="product" value="#{productBean.model}"
-					paginator="true" rows="10"
-					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-					rowsPerPageTemplate="5,10,15" lazy="true">
-					<p:column headerText="Id">
-						<h:outputText value="#{product.id}" />
-					</p:column>
-					<p:column headerText="Product code">
-						<h:outputText value="#{product.productCode}" />
-					</p:column>
-					<p:column headerText="Product name">
-						<h:outputText value="#{product.productName}" />
-					</p:column>
+					<p:dataTable var="product" value="#{productBean.model}"
+						paginator="true" rows="10"
+						paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+						rowsPerPageTemplate="5,10,15" lazy="true">
+						<p:column headerText="Id">
+							<h:outputText value="#{product.id}" />
+						</p:column>
+						<p:column headerText="Product code">
+							<h:outputText value="#{product.productCode}" />
+						</p:column>
+						<p:column headerText="Product name">
+							<h:outputText value="#{product.productName}" />
+						</p:column>
 					
 
 				</p:dataTable>
