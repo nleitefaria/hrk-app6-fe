@@ -6,10 +6,37 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core"
-	>
+	>	
 <h:body>
 	<ui:composition template="/template/common/commonLayout.xhtml">
 		<ui:define name="content">
+		
+		
+		<style type="text/css">
+    .value {
+        font-weight: bold;
+    }
+     
+    .ui-datatable {
+        margin-bottom: 25px
+    }
+     
+    .ui-datatable .ui-datatable-footer {
+        text-align:left;
+    }
+     
+    .ui-datalist ul {
+        padding: 0 0 0 10px;
+        margin: 5px 0;
+    }
+     
+    .ui-datatable .ui-button-icon-only .ui-button-text {
+        padding: 0;
+        line-height: 1.2;
+    }
+</style>
+		
+		
 			<br></br>
 			<h:form>
     			<p:breadCrumb>
@@ -24,9 +51,13 @@
 					paginator="true" rows="10"
 					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 					rowsPerPageTemplate="5,10,15" lazy="true">
+					
+					<!--
 					<p:column headerText="Id">
 						<h:outputText value="#{customer.id}" />
 					</p:column>
+					  -->
+					
 					<p:column headerText="First name">
 						<h:outputText value="#{customer.firstName}" />
 					</p:column>
@@ -36,52 +67,55 @@
 					<p:column headerText="Company">
 						<h:outputText value="#{customer.company}" />
 					</p:column>					
-					<p:column headerText="Email">
-						<h:outputText value="#{customer.emailAddress}" />
-					</p:column>
-					<p:column headerText="Title">
-						<h:outputText value="#{customer.company}" />
-					</p:column>
 					<p:column style="width:32px;text-align: center">
              			<p:commandButton update=":form:customerDetail" oncomplete="PF('customerDialog').show()" icon="pi pi-search" title="View">
                 			<f:setPropertyActionListener value="#{customer}" target="#{customerBean.selectedCustomer}" />
             			</p:commandButton>
         			</p:column>
-				</p:dataTable>
-				
-				
-				
-				
-				
-			<p:dialog header="Customer Info" widgetVar="customerDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-        <p:outputPanel id="customerDetail" style="text-align:center;">
-            <p:panelGrid  columns="2" columnClasses="label,value">
+				</p:dataTable>							
+				<p:dialog header="Customer Info" widgetVar="customerDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        			<p:outputPanel id="customerDetail">
+            			<p:panelGrid  columns="2" cellpadding = "10" cellspacing = "1" columnClasses="label,value">                              
+                			               			
+                			<h:outputText value="Job title:" />
+                			<h:outputText value="#{customerBean.selectedCustomer.jobTitle}" />
+                			
+                			<h:outputText value="First name:" />
+                			<h:outputText value="#{customerBean.selectedCustomer.firstName}" />
+                			
+                			<h:outputText value="Last name:" />
+                			<h:outputText value="#{customerBean.selectedCustomer.lastName}" />
+                			
+                			<h:outputText value="Home phone:" />
+                			<h:outputText value="#{not empty customerBean.selectedCustomer.homePhone ? customerBean.selectedCustomer.homePhone : 'na'}" />
+                			
+                			<h:outputText value="Mobile phone:" />
+                			<h:outputText value="#{not empty customerBean.selectedCustomer.mobilePhone ? customerBean.selectedCustomer.mobilePhone : 'na'}" />
+                			
+                			<h:outputText value="Business phone:" />
+                			<h:outputText value="#{not empty customerBean.selectedCustomer.businessPhone ? customerBean.selectedCustomer.businessPhone : 'na'}" />                			              			
+                			
+                			<h:outputText value="City:" />
+                			<h:outputText value="#{customerBean.selectedCustomer.city}" />
+                			
+                			<h:outputText value="Region:" />
+                			<h:outputText value="#{customerBean.selectedCustomer.countryRegion}" />
+                			
+                			<h:outputText value="Email:" />
+                			<h:outputText value="#{not empty customerBean.selectedCustomer.emailAddress ? customerBean.selectedCustomer.emailAddress : 'na'}" />
+                			
+                			
+                			
+                			
+                			
+                			
+                			
                 
-                 
-                <h:outputText value="Id:" />
-                <h:outputText value="#{customerBean.selectedCustomer.id}" />
-                
-                
-            </p:panelGrid>
-        </p:outputPanel>
-    </p:dialog>
-    	
-				
-				
-				
-				
-				
-				
-				
+            			</p:panelGrid>
+        			</p:outputPanel>
+    			</p:dialog>
+    			
 			</h:form>
-			
-			
-			
-			
-			
-			
-			
-			
 			
 		</ui:define>
 	</ui:composition>
