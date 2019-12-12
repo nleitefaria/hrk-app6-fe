@@ -19,7 +19,7 @@
 			</h:form>
 			<br></br>
 			<br></br>
-			<h:form>
+			<h:form id="form">
 				<p:dataTable var="customer" value="#{customerBean.model}"
 					paginator="true" rows="10"
 					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
@@ -42,8 +42,47 @@
 					<p:column headerText="Title">
 						<h:outputText value="#{customer.company}" />
 					</p:column>
+					<p:column style="width:32px;text-align: center">
+             			<p:commandButton update=":form:customerDetail" oncomplete="PF('customerDialog').show()" icon="pi pi-search" title="View">
+                			<f:setPropertyActionListener value="#{customer}" target="#{customerBean.selectedCustomer}" />
+            			</p:commandButton>
+        			</p:column>
 				</p:dataTable>
+				
+				
+				
+				
+				
+			<p:dialog header="Customer Info" widgetVar="customerDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        <p:outputPanel id="customerDetail" style="text-align:center;">
+            <p:panelGrid  columns="2" columnClasses="label,value">
+                
+                 
+                <h:outputText value="Id:" />
+                <h:outputText value="#{customerBean.selectedCustomer.id}" />
+                
+                
+            </p:panelGrid>
+        </p:outputPanel>
+    </p:dialog>
+    	
+				
+				
+				
+				
+				
+				
+				
 			</h:form>
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		</ui:define>
 	</ui:composition>
 </h:body>
