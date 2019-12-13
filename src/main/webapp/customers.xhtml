@@ -48,7 +48,7 @@
             		<p:commandButton type="button" value="New" icon="pi pi-file" onclick="PF('newDlg').show();" />      
         		</f:facet>
     		</p:toolbar>
-				<p:dataTable var="customer" value="#{customerBean.model}"
+				<p:dataTable var="customer" value="#{customerBean.model}" id="customerTable"
 					paginator="true" rows="10"
 					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 					rowsPerPageTemplate="5,10,15" lazy="true">
@@ -103,8 +103,30 @@
         			</p:outputPanel>
     			</p:dialog>
     			  			
-    			<p:dialog header="Create" widgetVar="newDlg" modal="true" height="100">
-    				<h:outputText value="TODO, create form" />
+    			<p:dialog header="Create" widgetVar="newDlg" modal="true" showEffect="fade" hideEffect="fade" resizable="false" >
+    				
+    				
+    				<h:panelGrid id="grid" cellpadding="5" columns="2" style="margin-bottom:10px">
+        <f:facet name="header">
+            <p:messages id="msgs" />
+        </f:facet>
+ 
+        <p:outputLabel for="firstname" value="Firstname:" />
+        <p:inputText id="firstname" value="#{customerFormBean.firstname}" />
+ 
+        <p:outputLabel for="surname" value="Surname:" />
+        <p:inputText id="surname" value="#{customerFormBean.lastname}" required="true" requiredMessage="Surname is required." />
+    </h:panelGrid>
+ 
+    <h:panelGrid columns="6" cellpadding="5">
+        
+        <p:commandButton value="Form" id="btnForm" process="@form" update="customerTable" action="#{customerFormBean.save}" />
+        
+    </h:panelGrid>
+    				
+    				
+    				
+    				
 				</p:dialog>   				  			
 			</h:form>			
 		</ui:define>
