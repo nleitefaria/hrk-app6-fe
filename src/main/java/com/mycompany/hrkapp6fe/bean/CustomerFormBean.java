@@ -9,31 +9,36 @@ import javax.faces.context.FacesContext;
 @RequestScoped
 public class CustomerFormBean {
 	
-	private String firstname;
-    private String lastname;
+	private String firstName;
+    private String lastName;
  
-    public String getFirstname() {
-        return firstname;
-    }
- 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
- 
-    public String getLastname() {
-        return lastname;
-    }
- 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
- 
-    public String save() {
+    
+    public String getFirstName() {
+		return firstName;
+	}
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+
+	public String save() {
         //FacesContext.getCurrentInstance().addMessage(null,
                 //new FacesMessage("Welcome " + firstname + " " + lastname));
         
-        System.out.println(firstname);
-        System.out.println(lastname);
+        System.out.println(firstName);
+        System.out.println(lastName);
         
         return "customers?faces-redirect=true"; 
         

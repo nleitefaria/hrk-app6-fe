@@ -54,12 +54,13 @@
 					showEffect="fade" hideEffect="fade" resizable="false">
 					<h:panelGrid id="grid" cellpadding="5" columns="2"
 						style="margin-bottom:10px">
-						<p:outputLabel for="firstname" value="Firstname:" />
-						<p:inputText id="firstname" value="#{customerFormBean.firstname}" />
+						<p:outputLabel for="firstName" value="First Name:" />
+						<p:inputText id="firstName" value="#{customerFormBean.firstName}" 
+							required="true" requiredMessage="First name is required."/>
 
-						<p:outputLabel for="surname" value="Surname:" />
-						<p:inputText id="surname" value="#{customerFormBean.lastname}"
-							required="true" requiredMessage="Surname is required." />
+						<p:outputLabel for="lastName" value="Last Name:" />
+						<p:inputText id="lastName" value="#{customerFormBean.lastName}"
+							required="true" requiredMessage="Last name is required." />
 					</h:panelGrid>
 					<h:panelGrid columns="6" cellpadding="5">
 						<p:commandButton value="Form" id="btnForm"
@@ -72,8 +73,8 @@
 					paginator="true" rows="10"
 					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 					rowsPerPageTemplate="5,10,15" lazy="true">
-					<p:column headerText="Id">
-						<h:outputText value="#{customer.id}" />
+					<p:column headerText="Job title">
+						<h:outputText value="#{customer.jobTitle}" />
 					</p:column>
 					<p:column headerText="First name">
 						<h:outputText value="#{customer.firstName}" />
@@ -82,12 +83,6 @@
 						<h:outputText value="#{customer.lastName}" />
 					</p:column>
 					<p:column headerText="Company">
-						<h:outputText value="#{customer.company}" />
-					</p:column>
-					<p:column headerText="Email">
-						<h:outputText value="#{customer.emailAddress}" />
-					</p:column>
-					<p:column headerText="Title">
 						<h:outputText value="#{customer.company}" />
 					</p:column>
 					<p:column style="width:32px;text-align: center">
@@ -105,8 +100,41 @@
 						<p:panelGrid columns="2" columnClasses="label,value">
 
 
-							<h:outputText value="Id:" />
-							<h:outputText value="#{customerBean.selectedCustomer.id}" />
+							<h:outputText value="Job title:" />
+							<h:outputText value="#{customerBean.selectedCustomer.jobTitle}" />
+							
+							<h:outputText value="First Name:" />
+							<h:outputText value="#{customerBean.selectedCustomer.firstName}" />
+							
+							<h:outputText value="Last Name:" />
+							<h:outputText value="#{customerBean.selectedCustomer.lastName}" />
+							
+							<h:outputText value="Email:" />
+                			<h:outputText value="#{not empty customerBean.selectedCustomer.emailAddress ? customerBean.selectedCustomer.emailAddress : 'na'}" />
+                			
+                			<h:outputText value="Company:" />
+                			<h:outputText value="#{not empty customerBean.selectedCustomer.company ? customerBean.selectedCustomer.company : 'na'}" />
+                			
+                			<h:outputText value="Country / Region:" />
+                			<h:outputText value="#{not empty customerBean.selectedCustomer.countryRegion ? customerBean.selectedCustomer.countryRegion : 'na'}" />
+                			
+                			<h:outputText value="City:" />
+                			<h:outputText value="#{not empty customerBean.selectedCustomer.city ? customerBean.selectedCustomer.city : 'na'}" />
+                			
+                			<h:outputText value="State:" />
+                			<h:outputText value="#{not empty customerBean.selectedCustomer.stateProvince ? customerBean.selectedCustomer.stateProvince : 'na'}" />
+                			
+                			<h:outputText value="Business phone" />
+                			<h:outputText value="#{not empty customerBean.selectedCustomer.businessPhone ? customerBean.selectedCustomer.businessPhone : 'na'}" />
+                			
+                			<h:outputText value="Home phone:" />
+                			<h:outputText value="#{not empty customerBean.selectedCustomer.homePhone ? customerBean.selectedCustomer.homePhone : 'na'}" />
+                			
+                			<h:outputText value="Fax number:" />
+                			<h:outputText value="#{not empty customerBean.selectedCustomer.faxNumber ? customerBean.selectedCustomer.faxNumber : 'na'}" />
+                			
+                			<h:outputText value="Address:" />
+                			<h:outputText value="#{not empty customerBean.selectedCustomer.address ? customerBean.selectedCustomer.address : 'na'}" />
 
 
 						</p:panelGrid>
