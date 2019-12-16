@@ -24,6 +24,31 @@ public class CustomersDTO {
 	public CustomersDTO() {
 		super();
 	}
+	
+	public CustomersDTO(String company, String lastName, String firstName, String emailAddress,
+			String jobTitle, String businessPhone, String homePhone, String mobilePhone, String faxNumber,
+			String address, String city, String stateProvince, String zipPostalCode, String countryRegion,
+			String webPage, String notes, String attachments) {
+		super();
+		this.company = company;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.emailAddress = emailAddress;
+		this.jobTitle = jobTitle;
+		this.businessPhone = businessPhone;
+		this.homePhone = homePhone;
+		this.mobilePhone = mobilePhone;
+		this.faxNumber = faxNumber;
+		this.address = address;
+		this.city = city;
+		this.stateProvince = stateProvince;
+		this.zipPostalCode = zipPostalCode;
+		this.countryRegion = countryRegion;
+		this.webPage = webPage;
+		this.notes = notes;
+		this.attachments = attachments;
+	}
+
 
 	public CustomersDTO(Integer id, String company, String lastName, String firstName, String emailAddress,
 			String jobTitle, String businessPhone, String homePhone, String mobilePhone, String faxNumber,

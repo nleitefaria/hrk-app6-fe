@@ -61,6 +61,35 @@
 						<p:outputLabel for="lastName" value="Last Name:" />
 						<p:inputText id="lastName" value="#{customerFormBean.lastName}"
 							required="true" requiredMessage="Last name is required." />
+													
+						<p:outputLabel for="email" value="Email:" />
+						<p:inputText id="email" value="#{customerFormBean.emailAddress}"
+							required="true" requiredMessage="Email is required." />
+													
+						<p:outputLabel for="jobTitle" value="Job title:" />
+						<p:inputText id="jobTitle" value="#{customerFormBean.jobTitle}"
+							required="true" requiredMessage="required." />
+																									
+						<p:outputLabel for="businessPhone" value="Business phone:" />
+						<p:inputText id="businessPhone" value="#{customerFormBean.businessPhone}"
+							required="true" requiredMessage="required." />
+														
+						<p:outputLabel for="homePhone" value="Home phone:" />
+						<p:inputText id="homePhone" value="#{customerFormBean.homePhone}"
+							required="true" requiredMessage="required." />
+							
+						<p:outputLabel for="mobilePhone" value="Mobile phone:" />
+						<p:inputText id="mobilePhone" value="#{customerFormBean.mobilePhone}"
+							required="true" requiredMessage="required." />
+							
+						<p:outputLabel for="faxNumber" value="faxNumber:" />
+						<p:inputText id="faxNumber" value="#{customerFormBean.faxNumber}"
+							required="true" requiredMessage="required." />
+							
+							
+							
+							
+							
 					</h:panelGrid>
 					<h:panelGrid columns="6" cellpadding="5">
 						<p:commandButton value="Form" id="btnForm"
