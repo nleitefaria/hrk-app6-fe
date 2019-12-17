@@ -50,49 +50,40 @@
 
 				</p:toolbar>
 
-				<p:dialog header="Create" widgetVar="newDlg" modal="true"
+				<p:dialog header="New customer" widgetVar="newDlg" modal="true"
 					showEffect="fade" hideEffect="fade" resizable="false">
 					<h:panelGrid id="grid" cellpadding="5" columns="2"
 						style="margin-bottom:10px">
 						<p:outputLabel for="firstName" value="First Name:" />
-						<p:inputText id="firstName" value="#{customerFormBean.firstName}" 
-							required="true" requiredMessage="First name is required."/>
+						<p:inputText id="firstName" value="#{customerFormBean.firstName}" />
 
 						<p:outputLabel for="lastName" value="Last Name:" />
-						<p:inputText id="lastName" value="#{customerFormBean.lastName}"
-							required="true" requiredMessage="Last name is required." />
+						<p:inputText id="lastName" value="#{customerFormBean.lastName}" />
+							
+						<p:outputLabel for="company" value="Company:" />
+						<p:inputText id="company" value="#{customerFormBean.company}" />
 													
 						<p:outputLabel for="email" value="Email:" />
-						<p:inputText id="email" value="#{customerFormBean.emailAddress}"
-							required="true" requiredMessage="Email is required." />
+						<p:inputText id="email" value="#{customerFormBean.emailAddress}" />
 													
 						<p:outputLabel for="jobTitle" value="Job title:" />
-						<p:inputText id="jobTitle" value="#{customerFormBean.jobTitle}"
-							required="true" requiredMessage="required." />
+						<p:inputText id="jobTitle" value="#{customerFormBean.jobTitle}" />
 																									
 						<p:outputLabel for="businessPhone" value="Business phone:" />
-						<p:inputText id="businessPhone" value="#{customerFormBean.businessPhone}"
-							required="true" requiredMessage="required." />
+						<p:inputText id="businessPhone" value="#{customerFormBean.businessPhone}" />
 														
 						<p:outputLabel for="homePhone" value="Home phone:" />
-						<p:inputText id="homePhone" value="#{customerFormBean.homePhone}"
-							required="true" requiredMessage="required." />
+						<p:inputText id="homePhone" value="#{customerFormBean.homePhone}" />
 							
 						<p:outputLabel for="mobilePhone" value="Mobile phone:" />
-						<p:inputText id="mobilePhone" value="#{customerFormBean.mobilePhone}"
-							required="true" requiredMessage="required." />
+						<p:inputText id="mobilePhone" value="#{customerFormBean.mobilePhone}" />
 							
 						<p:outputLabel for="faxNumber" value="faxNumber:" />
-						<p:inputText id="faxNumber" value="#{customerFormBean.faxNumber}"
-							required="true" requiredMessage="required." />
-							
-							
-							
-							
-							
+						<p:inputText id="faxNumber" value="#{customerFormBean.faxNumber}" />
+			
 					</h:panelGrid>
 					<h:panelGrid columns="6" cellpadding="5">
-						<p:commandButton value="Form" id="btnForm"
+						<p:commandButton value="Save" id="btnForm"
 							action="#{customerFormBean.save}" />
 					</h:panelGrid>
 				</p:dialog>
