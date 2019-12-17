@@ -5,10 +5,33 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-      >
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:body>   	
     	<ui:composition template="/template/common/commonLayout.xhtml">  	
     		<ui:define name="content">
+    		<style type="text/css">
+.value {
+	font-weight: bold;
+}
+
+.ui-datatable {
+	margin-bottom: 25px
+}
+
+.ui-datatable .ui-datatable-footer {
+	text-align: left;
+}
+
+.ui-datalist ul {
+	padding: 0 0 0 10px;
+	margin: 5px 0;
+}
+
+.ui-datatable .ui-button-icon-only .ui-button-text {
+	padding: 0;
+	line-height: 1.2;
+}
+</style>
     			<br></br>
     			<h:form>
     				<p:breadCrumb>
@@ -18,25 +41,71 @@
 				</h:form>
 				<br></br>
 				<br></br>
-    			<h:form>
+    			<h:form id="form">
 					<p:dataTable var="product" value="#{productBean.model}"
 						paginator="true" rows="10"
 						paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 						rowsPerPageTemplate="5,10,15" lazy="true">
-						<p:column headerText="Id">
-							<h:outputText value="#{product.id}" />
-						</p:column>
+						
 						<p:column headerText="Product code">
 							<h:outputText value="#{product.productCode}" />
 						</p:column>
 						<p:column headerText="Product name">
 							<h:outputText value="#{product.productName}" />
 						</p:column>
+						<p:column headerText="Standard cost">
+							<h:outputText value="#{product.standardCost}" />
+						</p:column>
+						<p:column headerText="List price">
+							<h:outputText value="#{product.listPrice}" />
+						</p:column>	
 					
+						<p:column style="width:32px;text-align: center">
+						<p:commandButton update=":form:productDetail"
+							oncomplete="PF('productDialog').show()" icon="pi pi-search"
+							title="View">
+							<f:setPropertyActionListener value="#{product}"
+								target="#{productBean.selectedProduct}" />
+						</p:commandButton>
+					</p:column>				
+				</p:dataTable>				
+				<p:dialog header="Product Info" widgetVar="productDialog"
+					modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+					<p:outputPanel id="productDetail" style="text-align:center;">
+						<p:panelGrid columns="2" columnClasses="label,value">
 
-				</p:dataTable>
-				</h:form>			
-						
+
+							<h:outputText value="Product code:" />
+							<h:outputText value="#{productBean.selectedProduct.productCode}" />
+														
+							<h:outputText value="Product name:" />
+							<h:outputText value="#{productBean.selectedProduct.productName}" />
+							
+							<h:outputText value="Standard cost:" />
+							<h:outputText value="#{productBean.selectedProduct.standardCost}" />
+							
+							<h:outputText value="List price:" />
+							<h:outputText value="#{productBean.selectedProduct.listPrice}" />
+							
+							<h:outputText value="Reorder level:" />
+							<h:outputText value="#{productBean.selectedProduct.reorderLevel}" />
+							
+							<h:outputText value="Target level:" />
+							<h:outputText value="#{productBean.selectedProduct.targetLevel}" />
+							
+							<h:outputText value="Quantity per unit:" />
+							<h:outputText value="#{not empty productBean.selectedProduct.quantityPerUnit ? productBean.selectedProduct.quantityPerUnit : 'n.a.'}" />
+							
+							<h:outputText value="Discontinued:" />
+							<h:outputText value="#{productBean.selectedProduct.discontinued}" />
+														
+							<h:outputText value="Category:" />
+							<h:outputText value="#{productBean.selectedProduct.category}" />
+							
+						</p:panelGrid>
+					</p:outputPanel>
+				</p:dialog>				
+				</h:form>									
     		</ui:define>   		
     	</ui:composition>   	
     </h:body>
