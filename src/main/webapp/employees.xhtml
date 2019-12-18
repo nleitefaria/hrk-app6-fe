@@ -4,10 +4,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:body>
 	<ui:composition template="/template/common/commonLayout.xhtml">
 		<ui:define name="content">
+		<style type="text/css">
+.value {
+	font-weight: bold;
+}
+
+.ui-datatable {
+	margin-bottom: 25px
+}
+
+.ui-datatable .ui-datatable-footer {
+	text-align: left;
+}
+
+.ui-datalist ul {
+	padding: 0 0 0 10px;
+	margin: 5px 0;
+}
+
+.ui-datatable .ui-button-icon-only .ui-button-text {
+	padding: 0;
+	line-height: 1.2;
+}
+</style>
 			<br></br>
 			<h:form>
     			<p:breadCrumb>
@@ -17,7 +41,7 @@
 			</h:form>
 			<br></br>
 			<br></br>
-			<h:form>
+			<h:form id="form">
 				<p:dataTable var="employee" value="#{employeeBean.model}"
 					paginator="true" rows="10"
 					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
@@ -31,8 +55,67 @@
 					<p:column headerText="Last name">
 						<h:outputText value="#{employee.lastName}" />
 					</p:column>
+					<p:column headerText="Company">
+						<h:outputText value="#{employee.company}" />
+					</p:column>
+					
+					<p:column style="width:32px;text-align: center">
+						<p:commandButton update=":form:employeeDetail"
+							oncomplete="PF('employeeDialog').show()" icon="pi pi-search"
+							title="View">
+							<f:setPropertyActionListener value="#{employee}"
+								target="#{employeeBean.selectedEmployee}" />
+						</p:commandButton>
+					</p:column>
 					
 				</p:dataTable>
+				
+				
+				<p:dialog header="Employee Info" widgetVar="employeeDialog"
+					modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+					<p:outputPanel id="employeeDetail" style="text-align:center;">
+						<p:panelGrid columns="2" columnClasses="label,value">
+							<h:outputText value="First name:" />
+							<h:outputText value="#{employeeBean.selectedEmployee.firstName}" />
+							
+							<h:outputText value="Last name:" />
+							<h:outputText value="#{employeeBean.selectedEmployee.lastName}" />
+							
+							<h:outputText value="Company:" />
+							<h:outputText value="#{employeeBean.selectedEmployee.company}" />
+							
+							<h:outputText value="Email:" />
+							<h:outputText value="#{employeeBean.selectedEmployee.emailAddress}" />
+							
+							<h:outputText value="Business phone:" />
+							<h:outputText value="#{employeeBean.selectedEmployee.businessPhone}" />
+							
+							<h:outputText value="Home phone:" />
+							<h:outputText value="#{employeeBean.selectedEmployee.homePhone}" />
+							
+							<h:outputText value="Mobile phone:" />
+							<h:outputText value="#{employeeBean.selectedEmployee.mobilePhone}" />
+							
+							<h:outputText value="Fax number:" />
+							<h:outputText value="#{employeeBean.selectedEmployee.faxNumber}" />
+							
+							<h:outputText value="Address:" />
+							<h:outputText value="#{employeeBean.selectedEmployee.address}" />												
+							
+							<h:outputText value="City:" />
+							<h:outputText value="#{employeeBean.selectedEmployee.city}" />
+							
+							<h:outputText value="State:" />
+							<h:outputText value="#{employeeBean.selectedEmployee.stateProvince}" />
+							
+							<h:outputText value="Postal code:" />
+							<h:outputText value="#{employeeBean.selectedEmployee.zipPostalCode}" />
+							
+							<h:outputText value="Country Region:" />
+							<h:outputText value="#{employeeBean.selectedEmployee.countryRegion}" />						
+						</p:panelGrid>
+					</p:outputPanel>
+				</p:dialog>	
 			</h:form>
 		</ui:define>
 	</ui:composition>
