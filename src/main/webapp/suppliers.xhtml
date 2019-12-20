@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:body>
 	<ui:composition template="/template/common/commonLayout.xhtml">
 		<ui:define name="content">
@@ -14,19 +15,48 @@
     				<p:menuitem value="Supliers" url="#" />
 				</p:breadCrumb>
 			</h:form>
-			<h:form>
+			<h:form id="form">
 				<p:dataTable var="supplier" value="#{supplierBean.model}"
 					paginator="true" rows="10"
 					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 					rowsPerPageTemplate="5,10,15" lazy="true">
-					<p:column headerText="Id">
-						<h:outputText value="#{supplier.id}" />
+					<p:column headerText="First name">
+						<h:outputText value="#{supplier.firstName}" />
+					</p:column>	
+									
+					<p:column headerText="Last name">
+						<h:outputText value="#{supplier.lastName}" />
 					</p:column>
-					
-					
-					
 
+					<p:column headerText="Job title">
+						<h:outputText value="#{supplier.jobTitle}" />
+					</p:column>				
+
+					<p:column style="width:32px;text-align: center">					
+						<p:commandButton update=":form:supplierDetail"
+							oncomplete="PF('supplierDialog').show()" icon="pi pi-search"
+							title="View">
+							<f:setPropertyActionListener value="#{supplier}"
+								target="#{supplierBean.selectedSupplier}" />
+						</p:commandButton>
+					</p:column>	
 				</p:dataTable>
+				<p:dialog header="Shipper Info" widgetVar="supplierDialog"
+					modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+					<p:outputPanel id="supplierDetail" style="text-align:center;">
+						<p:panelGrid columns="2" columnClasses="label,value">
+									
+							<h:outputText value="First name:" />
+                			<h:outputText value="#{not empty supplierBean.selectedSupplier.firstName ? supplierBean.selectedSupplier.firstName : 'na'}" />
+                			
+                			<h:outputText value="Last name:" />
+                			<h:outputText value="#{not empty supplierBean.selectedSupplier.lastName ? supplierBean.selectedSupplier.lastName : 'na'}" />
+                			
+                			<h:outputText value="Job title:" />
+                			<h:outputText value="#{not empty supplierBean.selectedSupplier.jobTitle ? supplierBean.selectedSupplier.jobTitle : 'na'}" />
+                		</p:panelGrid>
+					</p:outputPanel>
+				</p:dialog>	
 			</h:form>
 		</ui:define>
 	</ui:composition>

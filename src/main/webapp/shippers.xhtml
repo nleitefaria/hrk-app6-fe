@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:body>
 	<ui:composition template="/template/common/commonLayout.xhtml">
 		<ui:define name="content">
@@ -17,19 +18,66 @@
 			</h:form>
 			<br></br>
 			<br></br>
-			<h:form>
+			<h:form id="form">
 				<p:dataTable var="shipper" value="#{shipperBean.model}"
 					paginator="true" rows="10"
 					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-					rowsPerPageTemplate="5,10,15" lazy="true">
-					<p:column headerText="Id">
-						<h:outputText value="#{shipper.id}" />
+					rowsPerPageTemplate="5,10,15" lazy="true">	
+					
+					<p:column headerText="Company">
+						<h:outputText value="#{shipper.company}" />
+					</p:column>	
+									
+					<p:column headerText="Country / Region">
+						<h:outputText value="#{shipper.countryRegion}" />
 					</p:column>
-					
-					
-					
 
-				</p:dataTable>
+					<p:column style="width:32px;text-align: center">					
+						<p:commandButton update=":form:shipperDetail"
+							oncomplete="PF('shipperDialog').show()" icon="pi pi-search"
+							title="View">
+							<f:setPropertyActionListener value="#{shipper}"
+								target="#{shipperBean.selectedShipper}" />
+						</p:commandButton>
+					</p:column>	
+								
+				</p:dataTable>		
+				<p:dialog header="Shipper Info" widgetVar="shipperDialog"
+					modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+					<p:outputPanel id="shipperDetail" style="text-align:center;">
+						<p:panelGrid columns="2" columnClasses="label,value">
+									
+							<h:outputText value="Email:" />
+                			<h:outputText value="#{not empty shipperBean.selectedShipper.emailAddress ? shipperBean.selectedShipper.emailAddress : 'na'}" />
+                			
+                			<h:outputText value="Company:" />
+                			<h:outputText value="#{not empty shipperBean.selectedShipper.company ? shipperBean.selectedShipper.company : 'na'}" />
+                			
+                			<h:outputText value="Country / Region:" />
+                			<h:outputText value="#{not empty shipperBean.selectedShipper.countryRegion ? shipperBean.selectedShipper.countryRegion : 'na'}" />
+                			
+                			<h:outputText value="City:" />
+                			<h:outputText value="#{not empty shipperBean.selectedShipper.city ? shipperBean.selectedShipper.city : 'na'}" />
+                			
+                			<h:outputText value="State:" />
+                			<h:outputText value="#{not empty shipperBean.selectedShipper.stateProvince ? shipperBean.selectedShipper.stateProvince : 'na'}" />
+                			
+                			<h:outputText value="Business phone" />
+                			<h:outputText value="#{not empty shipperBean.selectedShipper.businessPhone ? shipperBean.selectedShipper.businessPhone : 'na'}" />
+                			
+                			<h:outputText value="Home phone:" />
+                			<h:outputText value="#{not empty shipperBean.selectedShipper.homePhone ? shipperBean.selectedShipper.homePhone : 'na'}" />
+                			
+                			<h:outputText value="Fax number:" />
+                			<h:outputText value="#{not empty shipperBean.selectedShipper.faxNumber ? shipperBean.selectedShipper.faxNumber : 'na'}" />
+                			
+                			<h:outputText value="Address:" />
+                			<h:outputText value="#{not empty shipperBean.selectedShipper.address ? shipperBean.selectedShipper.address : 'na'}" />
+													
+						</p:panelGrid>
+					</p:outputPanel>
+				</p:dialog>
+					
 			</h:form>
 		</ui:define>
 	</ui:composition>
