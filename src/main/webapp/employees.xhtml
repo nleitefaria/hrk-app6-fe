@@ -45,10 +45,7 @@
 				<p:dataTable var="employee" value="#{employeeBean.model}"
 					paginator="true" rows="10"
 					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-					rowsPerPageTemplate="5,10,15" lazy="true">
-					<p:column headerText="Id">
-						<h:outputText value="#{employee.id}" />
-					</p:column>
+					rowsPerPageTemplate="5,10,15" lazy="true">				
 					<p:column headerText="First name">
 						<h:outputText value="#{employee.firstName}" />
 					</p:column>

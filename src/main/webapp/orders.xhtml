@@ -4,10 +4,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:body>
 	<ui:composition template="/template/common/commonLayout.xhtml">
 		<ui:define name="content">
+		<style type="text/css">
+.value {
+	font-weight: bold;
+}
+
+.ui-datatable {
+	margin-bottom: 25px
+}
+
+.ui-datatable .ui-datatable-footer {
+	text-align: left;
+}
+
+.ui-datalist ul {
+	padding: 0 0 0 10px;
+	margin: 5px 0;
+}
+
+.ui-datatable .ui-button-icon-only .ui-button-text {
+	padding: 0;
+	line-height: 1.2;
+}
+</style>
 			<br></br>
 			<h:form>
     			<p:breadCrumb>
@@ -17,21 +41,78 @@
 			</h:form>
 			<br></br>
 			<br></br>
-			<h:form>
+			<h:form id="form">
 				<p:dataTable var="order" value="#{orderBean.model}"
 					paginator="true" rows="10"
 					paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 					rowsPerPageTemplate="5,10,15" lazy="true">
-					<p:column headerText="Id">
-						<h:outputText value="#{order.id}" />
-					</p:column>
+					<p:column headerText="Ship name">
+						<h:outputText value="#{order.shipName}" />
+					</p:column>	
 					<p:column headerText="Order date">
 						<h:outputText value="#{order.orderDate}" />
+					</p:column>					
+											
+					<p:column headerText="Payment type">
+						<h:outputText value="#{not empty order.paymentType ? order.paymentType : 'n.a.'}" />
 					</p:column>
 					
 					
-
+					
+					<p:column style="width:32px;text-align: center">
+						<p:commandButton update=":form:orderDetail"
+							oncomplete="PF('orderDialog').show()" icon="pi pi-search"
+							title="View">
+							<f:setPropertyActionListener value="#{order}"
+								target="#{orderBean.selectedOrder}" />
+						</p:commandButton>
+					</p:column>
+					
 				</p:dataTable>
+				
+				<p:dialog header="Order Info" widgetVar="orderDialog"
+					modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+					<p:outputPanel id="orderDetail" style="text-align:center;">
+						<p:panelGrid columns="2" columnClasses="label,value">
+
+							<h:outputText value="Ship name:" />
+							<h:outputText value="#{orderBean.selectedOrder.shipName}" />
+							
+							<h:outputText value="Ship address:" />
+							<h:outputText value="#{orderBean.selectedOrder.shipAddress}" />
+							
+							<h:outputText value="Ship city:" />
+							<h:outputText value="#{orderBean.selectedOrder.shipCity}" />
+							
+							<h:outputText value="Ship state province:" />
+							<h:outputText value="#{orderBean.selectedOrder.shipStateProvince}" />
+							
+							<h:outputText value="Ship zip postal code:" />
+							<h:outputText value="#{orderBean.selectedOrder.shipZipPostalCode}" />
+							
+							<h:outputText value="Ship country region:" />
+							<h:outputText value="#{orderBean.selectedOrder.shipCountryRegion}" />
+							
+							<h:outputText value="Ship state province:" />
+							<h:outputText value="#{orderBean.selectedOrder.shipCountryRegion}" />
+				
+							<h:outputText value="Shipping fee:" />
+							<h:outputText value="#{orderBean.selectedOrder.shippingFee}" />
+							
+							<h:outputText value="Taxes:" />
+							<h:outputText value="#{orderBean.selectedOrder.taxes}" />
+							
+							<h:outputText value="Payment type:" />
+							<h:outputText value="#{not empty orderBean.selectedOrder.paymentType ? orderBean.selectedOrder.paymentType : 'n.a.'}" />
+							
+							<h:outputText value="Paid date:" />
+							<h:outputText value="#{not empty orderBean.selectedOrder.paidDate ? orderBean.selectedOrder.paidDate : 'n.a.'}" />
+							
+							</p:panelGrid>
+					</p:outputPanel>
+				</p:dialog>
+				
+				
 			</h:form>
 		</ui:define>
 	</ui:composition>
