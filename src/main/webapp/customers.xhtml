@@ -105,10 +105,13 @@
 					<p:column headerText="Company">
 						<h:outputText value="#{customer.company}" />
 					</p:column>
-					<p:column style="width:32px;text-align: center">
+					<p:column style="width:120px;text-align: center">
 						<p:commandButton update=":form:customerDetail"
-							oncomplete="PF('customerDialog').show()" icon="pi pi-search"
-							title="View">
+							oncomplete="PF('customerDialog').show()"
+							title="View"
+							styleClass="ui-priority-primary"
+							value="Details"
+							>
 							<f:setPropertyActionListener value="#{customer}"
 								target="#{customerBean.selectedCustomer}" />
 						</p:commandButton>
